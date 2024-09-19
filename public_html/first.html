@@ -2,16 +2,27 @@
 <html lang="en">
   <head>
     <title>HTML Practice</title>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
     <style>
       body {
         font-size: 1.25rem;
+        margin: 0;
+        padding: 0;
       }
+
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
       .img-wrapper {
-        float: left; /* text wrapped to the right */
+        flex: 1 1 500px;
+        max-width: 500px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
       }
     </style>
   </head>
@@ -25,32 +36,32 @@
         Hometown: Sherborn, MA
       </p>
 
-      <div class="row">
-        <div class="col-md-4">
+      <div class="flex-container">
+        <div class="img-wrapper">
           <img
             src="static/images/MedfieldStateHospital.jpg"
             alt="Medfield State Hospital"
-            class="img-fluid img-wrapper"
+            class="img-fluid"
           />
         </div>
-        <div class="col-md-8">
+
+        <div class="text-content">
           <p>
-            This is Medfield State Hospital: an abandonded mental hospital that
+            This is Medfield State Hospital: an abandoned mental hospital that
             has been turned into a park. I go here every week to walk my dog.
           </p>
         </div>
       </div>
 
-      <a href="https://jacksabby.com/" target="_blank" rel="noopener noreferrer"
-        >My Favorite Restaurant</a
-      >
-
-      <p>Interesting Fact: I am ambidextrous</p>
+      <div class="last-div">
+        <a
+          href="https://jacksabby.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >My Favorite Restaurant</a
+        >
+        <p>Interesting Fact: I am ambidextrous</p>
+      </div>
     </div>
-
-    <!-- Bootstraps -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
