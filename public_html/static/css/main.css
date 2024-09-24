@@ -17,7 +17,7 @@ body {
     background-color: var(--background-color);
     color: var(--light-gray);
     font-family: 'Source Code Pro', monospace;
-    margin: 5vw; /* 5% of screen width ~ 40px on computer */
+    margin: 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {
