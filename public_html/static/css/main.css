@@ -42,7 +42,6 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--background-color);
     background-size: cover;
     border-radius: 10px;
-    min-height: 300px;
     padding: 20px;
     text-align: center;
     justify-content: center;
