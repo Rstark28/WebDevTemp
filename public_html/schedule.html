@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schedule - NoirTech</title>
+    <link rel="stylesheet" href="static/css/main.css" />
+  </head>
+  <style>
+    .table {
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table th,
+    .table td {
+      text-align: center;
+      vertical-align: middle;
+      padding: 0.75rem;
+      border: 1px solid var(--background-color);
+      font-family: "Roboto", sans-serif;
+      color: var(--light-gray);
+    }
+
+    .table th {
+      background-color: var(--background-color);
+      color: var(--light-gray);
+    }
+
+    .table-hover tbody tr:hover {
+      background-color: var(--background-color);
+      color: var(--hover-color);
+    }
+  </style>
+  <body>
+    <header class="navbar">
+      <a href="index.html">NoirTech</a>
+      <a href="index.html">Home</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="contact.html">Contact</a>
+    </header>
+    <main class="content-box">
+      <h2>Our Services</h2>
+      <ul>
+        <li>
+          <strong>Dark Web Monitoring:</strong> Keep your business safe from
+          stolen credentials, leaked data, and malicious actors lurking in
+          hidden corners of the internet.
+        </li>
+        <li>
+          <strong>Threat Intelligence & Analysis:</strong> Stay ahead of
+          emerging cyber threats with real-time analysis and alerts on potential
+          vulnerabilities.
+        </li>
+        <li>
+          <strong>Incident Response & Recovery:</strong> If a breach occurs, we
+          provide rapid incident response to minimize damage and recover
+          critical data.
+        </li>
+      </ul>
+      <h2>Upcoming Events</h2>
+      <table class="table table-hover table-responsive">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Event</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>9:00 AM - 10:00 AM</td>
+            <td>Team Meeting</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>11:00 AM - 12:00 PM</td>
+            <td>Project Planning</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>1:00 PM - 2:00 PM</td>
+            <td>Client Call</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>3:00 PM - 4:00 PM</td>
+            <td>Development Workshop</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>10:00 AM - 11:00 AM</td>
+            <td>Review Session</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer>
+      <a href="contact.html">Contact Us</a>
+      <p>Email: info@niortech.com</p>
+      <p>Phone: (123) 456-7890</p>
+      <p>&copy; 2024 NoirTech. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
