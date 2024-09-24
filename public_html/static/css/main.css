@@ -1,3 +1,6 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
+
 /* Colors */
 :root {
     --primary-color: #30336b;
@@ -12,8 +15,14 @@
 /* Main style */
 body {
     background-color: var(--background-color);
-    font-family: 'Roboto', sans-serif;
     color: var(--light-gray);
+    font-family: 'Source Code Pro', monospace;
+    margin: 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    font-family: 'Exo 2', sans-serif;
 }
 
 .content-box {
@@ -21,6 +30,37 @@ body {
     background-color: var(--primary-color);
     border: none;
     border-radius: 10px;
+    padding: 40px;
+}
+
+.container {
+    display: flex;
+    column-gap: 20px;
+}
+
+.tri-box {
+    background-color: var(--background-color);
+    background-size: cover;
+    border-radius: 10px;
+    min-height: 300px;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.image-box2 {
+    background-image: url('../images/backgroundimg.jpg');
+}
+
+.image-box1 {
+    background-image: url('../images/background2img.jpg');
+}
+
+/* Header Style */
+header {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--light-gray);
 }
 
 /* NavBar Style */
@@ -29,9 +69,9 @@ body {
     justify-content: flex-start;
     background-color: var(--primary-color);
     padding: 10px;
-    margin-bottom: 20px;
     border: none;
     border-radius: 10px;
+    margin: 20px 0;
 }
 
 .navbar a {
@@ -42,17 +82,18 @@ body {
     text-decoration: none;
     border: none;
     border-radius: 10px;
+    font-family: 'Exo 2', sans-serif;
 }
 
 .navbar a:hover {
     background-color: var(--background-color);
     color: var(--hover-color);
-    text-decoration: none; /* Remove underline on hover */
+    text-decoration: none;
 }
 
 /* Footer Style */
 footer {
-    margin-top: 20px;
+    margin: 20px 0;
     text-align: center;
 }
 
@@ -71,10 +112,10 @@ form {
     background-color: var(--primary-color);
     padding: 20px;
     color: var(--light-gray);
+    margin: 20px 0;
 }
 
-form input,
-form textarea {
+form input, form textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -101,8 +142,18 @@ button {
     font-size: 16px;
     border: none;
     border-radius: 10px;
+    margin: 10px 0;
 }
 
 button:hover {
     background-color: var(--hover-color);
+}
+
+/* List Style */
+ul, ol {
+    padding-left: 40px;
+}
+
+li {
+    padding: 5px 0;
 }
