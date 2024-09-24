@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Practice</title>
+    <style>
+      body {
+        font-size: 1.25rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .img-wrapper {
+        float: left;
+        margin-right: 20px;
+        max-width: 500px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .unwrapped {
+        clear: both; /* Ensure text starts below the floated image */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-4">
+      <h1>Robert S</h1>
+      <h2>Computer Science</h2>
+      <p>
+        IP Address: 130.64.64.38<br />
+        Hometown: Sherborn, MA
+      </p>
+
+      <div class="flex-container">
+        <div class="img-wrapper">
+          <img
+            src="static/images/MedfieldStateHospital.jpg"
+            alt="Medfield State Hospital"
+            class="img-fluid"
+          />
+        </div>
+
+        <div>
+          <p>
+            This is Medfield State Hospital: an abandoned mental hospital that
+            has been turned into a park. I go here every week to walk my dog.
+          </p>
+        </div>
+      </div>
+
+      <div class="unwrapped">
+        <a href="https://jacksabby.com/" target="_blank"
+          >My Favorite Restaurant</a
+        >
+        <p>Interesting Fact: I am ambidextrous</p>
+      </div>
+    </div>
+  </body>
+</html>
