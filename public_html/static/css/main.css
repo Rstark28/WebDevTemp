@@ -32,10 +32,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
-    display: flex;
+    display: block;
+    padding: 20px;
     column-gap: 20px;
 }
-
 .tri-box {
     background-color: var(--background-color);
     background-size: cover;
@@ -43,6 +43,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
     text-align: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .image-box2 {
