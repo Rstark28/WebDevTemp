@@ -25,11 +25,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content-box {
-    padding: 20px;
+    padding: 50px;
     background-color: var(--primary-color);
     border: none;
     border-radius: 10px;
-    padding: 40px;
 }
 
 .container {
