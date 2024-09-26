@@ -24,36 +24,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Exo 2', sans-serif;
 }
 
-.content-box {
-    padding: 50px;
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 10px;
-}
-
-.container {
-    display: block;
-    padding: 20px;
-    column-gap: 20px;
-}
-.tri-box {
-    background-color: var(--background-color);
-    background-size: cover;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.image-box2 {
-    background-image: url('../images/backgroundimg.jpg');
-}
-
-.image-box1 {
-    background-image: url('../images/background2img.jpg');
-}
-
 /* Header Style */
 header {
     text-align: center;
@@ -69,7 +39,7 @@ header {
     padding: 10px;
     border: none;
     border-radius: 10px;
-    margin: 20px 0;
+    margin: 30px 50px;
 }
 
 .navbar a {
@@ -89,12 +59,60 @@ header {
     text-decoration: none;
 }
 
+/* Container Style */
+.container {
+    display: flex;
+    padding: 20px;
+    column-gap: 20px;
+}
+
+/* Vertically stacks blocks when screen is narrow */
+@media (max-width: 1000px) {
+    .container {
+        display: block;
+    }
+}
+
+/* Content Box Style */
+.content-box {
+    padding: 50px;
+    margin: 0 50px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+}
+
+/* Content Block Style */
+.content-block {
+    background-color: var(--background-color);
+    background-size: cover;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    flex: 1;
+    align-items: center;
+}
+
+/* Image Box Styles */
+.image-box1 {
+    background-image: url('../images/backgroundimg.jpg');
+}
+
+.image-box2 { 
+    background-image: url('../images/gymimg1.webp');
+}
+
+.image-box3 {
+    background-image: url('../images/gymimg2.webp');
+}
+
 /* Footer Style */
 footer {
     margin: 20px 0;
     text-align: center;
 }
 
+/* Link Style */
 a {
     color: var(--light-gray);
     text-decoration: none;
@@ -102,7 +120,12 @@ a {
 
 a:hover {
     color: var(--hover-color);
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+/* Scrolling Effect For Links */
+html {
+    scroll-behavior: smooth;
 }
 
 /* Form Style */
@@ -133,6 +156,7 @@ form input[type="submit"] {
     border-radius: 10px;
 }
 
+/* Button Style */
 button {
     background-color: var(--button-color);
     color: var(--light-gray);
@@ -148,9 +172,6 @@ button:hover {
 }
 
 /* List Style */
-ul, ol {
-    padding-left: 40px;
-}
 
 li {
     padding: 5px 0;
