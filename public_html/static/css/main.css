@@ -66,13 +66,6 @@ header {
     column-gap: 20px;
 }
 
-/* Vertically stacks blocks when screen is narrow */
-@media (max-width: 1000px) {
-    .container {
-        display: block;
-    }
-}
-
 /* Content Box Style */
 .content-box {
     padding: 50px;
@@ -80,6 +73,21 @@ header {
     background-color: var(--primary-color);
     border: none;
     border-radius: 10px;
+}
+
+/* Vertically stacks blocks when screen is narrow */
+@media (max-width: 1000px) {
+    .container {
+        display: block;
+    }
+
+    .content-box {
+        margin: 0 10px;
+    }
+
+    .navbar {
+        margin: 30px 10px;
+    }
 }
 
 /* Content Block Style */
