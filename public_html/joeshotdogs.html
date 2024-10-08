@@ -1,66 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="static/css/main.css" />
-    <title>Joe's Hotdog Stand</title>
-  </head>
-  <body>
-    <h1>Joe's Hotdog Stand - Order Summary</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="static/css/main.css" />
+  <title>Joe's Hotdog Stand</title>
+</head>
+
+<body>
+  <header>
+    <h1>
+      <img src="static/images/hotdog.png" alt="Hotdog Image" style="transform: scaleX(-1);" />
+      Joe's Hotdog Stand
+      <img src="static/images/hotdog.png" alt="Hotdog Image" />
+    </h1>
+  </header>
+  <main>
+    <ul>
+      <li>Hotdog: $4.80</li>
+      <li>Fries: $3.95</li>
+      <li>Soda: $1.99</li>
+    </ul>
+    <button onclick="calculateOrder()">Calculate Order</button>
     <div id="orderSummary"></div>
+  </main>
 
-    <script>
-      const priceDogs = 4.8;
-      const priceFries = 3.95;
-      const priceDrink = 1.99;
+  <script>
+    const priceDogs = 4.80;
+    const priceFries = 3.95;
+    const priceDrink = 1.99;
 
-      function roundMoney(amount) {
-        return Math.round(amount * 100) / 100;
-      }
+    function showMoney(amount) {
+      return Math.round(amount * 100) / 100;
+    }
 
-      let numDogs = prompt("How many hotdogs would you like?", 0);
-      let numFries = prompt("How many fries would you like?", 0);
-      let numSoda = prompt("How many sodas would you like?", 0);
+    function calculateOrder() {
+      // Get user input
+      let numDogs = parseInt(prompt("How many hotdogs would you like?"));
+      let numFries = parseInt(prompt("How many fries would you like?"));
+      let numSoda = parseInt(prompt("How many sodas would you like?"));
 
-      numDogs = parseInt(numDogs);
-      numFries = parseInt(numFries);
-      numSoda = parseInt(numSoda);
-
+      // Calculate subtotals
       let subtotalDogs = numDogs * priceDogs;
       let subtotalFries = numFries * priceFries;
       let subtotalSoda = numSoda * priceDrink;
       let subtotal = subtotalDogs + subtotalFries + subtotalSoda;
 
+      // Calculate discount
       let discount = 0;
       if (subtotal >= 25) {
         discount = subtotal * 0.1;
       }
       let subtotalAfterDiscount = subtotal - discount;
+      // Calculate tax
       let tax = subtotalAfterDiscount * 0.0625;
+      // Calculate final total
       let finalTotal = subtotalAfterDiscount + tax;
 
+      // Output order summary
       let output = `
-            <p>Hotdogs: ${numDogs} x $${roundMoney(priceDogs)} = $${roundMoney(
-        subtotalDogs
-      )}</p>
-            <p>Fries: ${numFries} x $${roundMoney(priceFries)} = $${roundMoney(
-        subtotalFries
-      )}</p>
-            <p>Sodas: ${numSoda} x $${roundMoney(priceDrink)} = $${roundMoney(
-        subtotalSoda
-      )}</p>
-            <p>Subtotal before discount: $${roundMoney(subtotal)}</p>
-            <p>Discount: $${roundMoney(discount)}</p>
-            <p>Subtotal after discount: $${roundMoney(
-              subtotalAfterDiscount
-            )}</p>
-            <p>Tax (6.25%): $${roundMoney(tax)}</p>
-            <p><strong>Final Total: $${roundMoney(finalTotal)}</strong></p>
+            <h2>Order Summary</h2>
+            <p>Hotdogs: ${numDogs} x $${showMoney(priceDogs)} = $${showMoney(subtotalDogs)}</p>
+            <p>Fries: ${numFries} x $${showMoney(priceFries)} = $${showMoney(subtotalFries)}</p>
+            <p>Sodas: ${numSoda} x $${showMoney(priceDrink)} = $${showMoney(subtotalSoda)}</p>
+            <p>Subtotal before discount: $${showMoney(subtotal)}</p>
+            <p>Discount: $${showMoney(discount)}</p>
+            <p>Subtotal after discount: $${showMoney(subtotalAfterDiscount)}</p>
+            <p>Tax (6.25%): $${showMoney(tax)}</p>
+            <p><strong>Final Total: $${showMoney(finalTotal)}</strong></p>
         `;
 
-      // Display the result
-      document.getElementById("orderSummary").innerHTML = output;
-    </script>
-  </body>
+      document.getElementById('orderSummary').innerHTML = output;
+    }
+  </script>
+</body>
+
 </html>
