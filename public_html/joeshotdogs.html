@@ -32,8 +32,19 @@
     const priceDrink = 1.99;
 
     function showMoney(amount) {
-      return Math.round(amount * 100) / 100;
+      let roundedAmount = Math.round(amount * 100) / 100;
+      // Split number at the decimal point
+      let dec = roundedAmount.toString().split(".");
+      // Add the necessary number of zeros to put into money format
+      if (dec.length === 1) {
+        return roundedAmount.toString() + ".00";
+      }
+      else if (dec[1].length === 1) {
+        return roundedAmount.toString() + "0";
+      }
+      return roundedAmount.toString();
     }
+
 
     function calculateOrder() {
       // Get user input
