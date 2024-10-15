@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="static/css/ttt.css">
+</head>
+
+<body>
+
+    <h1>Tic-Tac-Toe</h1>
+    <div id="turn">X's Turn</div>
+    <div class="board"></div>
+    <div id="condition">No Winner Yet</div>
+
+    <script>
+        const NUM_SQUARES = 9;
+        const board = document.querySelector('.board');
+        for (let i = 0; i < NUM_SQUARES; i++) {
+            const id = "sq" + i;
+            board.innerHTML += `<div class='square' id='${id}'></div>`;
+        }
+
+        document.getElementById('sq2').innerText = 'X';
+        document.getElementById('sq3').innerText = 'O';
+    </script>
+
+</body>
+
+</html>

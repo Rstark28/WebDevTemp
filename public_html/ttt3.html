@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="static/css/ttt.css">
+</head>
+
+<body>
+
+    <h1>Tic-Tac-Toe</h1>
+    <div id="turn"></div>
+    <div class="board"></div>
+    <div id="condition">No Winner Yet</div>
+    <div style="text-align: center;">
+        <button id="start-game">Start Game</button>
+    </div>
+    <script>
+        const NUM_SQUARES = 9;
+        let board = document.querySelector('.board');
+        let currTurn;
+
+        function updateTurn() {
+            document.getElementById('turn').innerText = `${currTurn}'s Turn`;
+        }
+
+        function clearBoard() {
+            currTurn = Math.random() < 0.5 ? 'X' : 'O';
+            board.innerHTML = '';
+            for (let i = 0; i < NUM_SQUARES; i++) {
+                board.innerHTML += `<div class='square' id='${"sq" + i}'></div>`;
+            }
+            updateTurn();
+            runGame();
+        }
+
+        function runGame() {
+            document.querySelectorAll('.square').forEach((square, index) => {
+                square.addEventListener('click', () => {
+                    if (!square.innerText) {
+                        square.innerText = currTurn;
+                        alert(`Square ${index} clicked`);
+                        currTurn = currTurn === 'X' ? 'O' : 'X';
+                        updateTurn();
+                    }
+                });
+            });
+        }
+
+        document.getElementById('start-game').addEventListener('click', clearBoard);
+        clearBoard();
+    </script>
+
+</body>
+
+</html>
