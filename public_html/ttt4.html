@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe</title>
+    <title>The Tic Tac Tango</title>
     <link rel="stylesheet" href="static/css/ttt.css">
 </head>
 
 <body>
 
-    <h1>Tic-Tac-Toe</h1>
+    <h1>The Tic Tac Tango</h1>
     <div id="turn"></div>
     <div class="board"></div>
     <div id="condition">No Winner Yet</div>
-    <div style="text-align: center;">
-        <button id="start-game">Start Game</button>
-    </div>
+    <button id="start-game">Start Game</button>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         const NUM_SQUARES = 9;
         let board = document.querySelector('.board');
@@ -39,6 +38,7 @@
                 board.innerHTML += `<div class='square' id='${"sq" + i}'></div>`;
             }
             document.getElementById('condition').innerText = `No Winner Yet`;
+            $('#condition').css('background-color', '#abb5df');
             updateTurn();
             runGame();
         }
@@ -68,9 +68,12 @@
                         if (result) {
                             if (result === 'S') {
                                 document.getElementById('condition').innerText = 'Stalemate';
+                                $('#condition').css('background-color', '#ffee8b');
                             } else {
                                 document.getElementById('condition').innerText = `${result} Wins!`;
+                                $('#condition').css('background-color', '#92d9a2');
                             }
+
                         } else {
                             currTurn = currTurn === 'X' ? 'O' : 'X';
                             updateTurn();

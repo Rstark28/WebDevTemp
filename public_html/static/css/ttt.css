@@ -1,3 +1,16 @@
+:root {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    --primary-color: #abb5df;
+    --secondary-color: #5b75dc;
+    --background-color: #d5daee;
+}
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
     text-align: center;
 }
@@ -16,18 +29,36 @@ h1 {
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    border: 1px solid #000000;
+    border-radius: 10px;
+    border: 3px solid var(--secondary-color);
     cursor: pointer;
 }
 
 .square:hover {
-    background-color: #dfabc0;
+    background-color: var(--primary-color);
 }
 
 #turn, #condition {
-    border: 1px solid #000000;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    border: 3px solid var(--secondary-color);
     padding: 10px;
     margin: 10px auto;
     width: 320px;
     text-align: center;
+}
+button#start-game {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: var(--primary-color);
+    border: 3px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 10px 30px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+button#start-game:hover {
+    background-color: var(--secondary-color);
 }
