@@ -31,7 +31,7 @@
         function resetBoard() {
             currPlayer = Math.random() < 0.5 ? 'X' : 'O';
             document.getElementById('turn').innerText = `${currPlayer}'s Turn`;
-            for (let i = 0; i < NUM_SQUARES; i++) {
+            for (i = 0; i < NUM_SQUARES; i++) {
                 document.getElementById('sq' + i).innerText = '';
             }
         }
@@ -52,7 +52,7 @@
         }
 
         document.getElementById('start-game').onclick = function () {
-            for (let i = 0; i < NUM_SQUARES; i++) {
+            for (i = 0; i < NUM_SQUARES; i++) {
                 document.getElementById('sq' + i).addEventListener('click', makeMove);
             }
             resetBoard();

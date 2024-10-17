@@ -41,7 +41,7 @@
             document.getElementById('turn').innerText = `${currPlayer}'s Turn`;
             document.getElementById('condition').innerText = 'No Winner Yet';
             $('#condition').css('background-color', '#abb5df');
-            for (let i = 0; i < NUM_SQUARES; i++) {
+            for (i = 0; i < NUM_SQUARES; i++) {
                 document.getElementById('sq' + i).innerText = '';
             }
         }
@@ -64,7 +64,7 @@
         }
 
         function checkWin(currBoard) {
-            for (let i = 0; i < winConditions.length; i++) {
+            for (i = 0; i < winConditions.length; i++) {
                 const [a, b, c] = winConditions[i];
                 if (currBoard[a] && currBoard[a] === currBoard[b] && currBoard[a] === currBoard[c]) {
                     return currBoard[a];
@@ -82,13 +82,13 @@
                 $('#condition').css('background-color', '#92d9a2');
             }
             document.getElementById('turn').innerText = `Game Over, Start A New Game`;
-            for (let i = 0; i < NUM_SQUARES; i++) {
+            for (i = 0; i < NUM_SQUARES; i++) {
                 document.getElementById('sq' + i).removeEventListener('click', makeMove);
             }
         }
 
         document.getElementById('start-game').onclick = function () {
-            for (let i = 0; i < NUM_SQUARES; i++) {
+            for (i = 0; i < NUM_SQUARES; i++) {
                 document.getElementById('sq' + i).addEventListener('click', makeMove);
             }
             resetBoard();
