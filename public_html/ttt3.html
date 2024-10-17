@@ -11,44 +11,52 @@
 <body>
 
     <h1>The Tic Tac Tango</h1>
-    <div id="turn"></div>
-    <div class="board"></div>
-    <div id="condition">No Winner Yet</div>
-    <button id="start-game">Start Game</button>
+    <div id="turn">Start The Game To Play</div>
+
     <script>
         const NUM_SQUARES = 9;
-        let board = document.querySelector('.board');
-        let currTurn;
 
-        function updateTurn() {
-            document.getElementById('turn').innerText = `${currTurn}'s Turn`;
+        document.write('<div class="board">');
+        for (let i = 0; i < NUM_SQUARES; i++) {
+            let id = "sq" + i;
+            document.write("<div class='square' id='" + id + "'></div>");
         }
+        document.write('</div>');
+    </script>
 
-        function clearBoard() {
-            currTurn = Math.random() < 0.5 ? 'X' : 'O';
-            board.innerHTML = '';
+    <div id="condition">No Winner Yet</div>
+    <button id="start-game">Start Game</button>
+
+    <script>
+        function resetBoard() {
+            currPlayer = Math.random() < 0.5 ? 'X' : 'O';
+            document.getElementById('turn').innerText = `${currPlayer}'s Turn`;
             for (let i = 0; i < NUM_SQUARES; i++) {
-                board.innerHTML += `<div class='square' id='${"sq" + i}'></div>`;
+                document.getElementById('sq' + i).innerText = '';
             }
-            updateTurn();
-            runGame();
         }
 
-        function runGame() {
-            document.querySelectorAll('.square').forEach((square, index) => {
-                square.addEventListener('click', () => {
-                    if (!square.innerText) {
-                        square.innerText = currTurn;
-                        alert(`Square ${index} clicked`);
-                        currTurn = currTurn === 'X' ? 'O' : 'X';
-                        updateTurn();
-                    }
-                });
-            });
+        function makeMove(event) {
+            let square = event.target;
+            if (square.innerText === '') {
+                square.innerText = currPlayer;
+                alert(`Square ${square.id.replace('sq', '')} clicked`);
+                changeTurn();
+            }
+
         }
 
-        document.getElementById('start-game').addEventListener('click', clearBoard);
-        clearBoard();
+        function changeTurn() {
+            currPlayer = currPlayer === 'X' ? 'O' : 'X';
+            document.getElementById('turn').innerText = `${currPlayer}'s Turn`;
+        }
+
+        document.getElementById('start-game').onclick = function () {
+            for (let i = 0; i < NUM_SQUARES; i++) {
+                document.getElementById('sq' + i).addEventListener('click', makeMove);
+            }
+            resetBoard();
+        };
     </script>
 
 </body>

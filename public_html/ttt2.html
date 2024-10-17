@@ -12,19 +12,25 @@
 
     <h1>The Tic Tac Tango</h1>
     <div id="turn">X's Turn</div>
-    <div class="board"></div>
-    <div id="condition">No Winner Yet</div>
 
     <script>
         const NUM_SQUARES = 9;
-        const board = document.querySelector('.board');
-        for (let i = 0; i < NUM_SQUARES; i++) {
-            const id = "sq" + i;
-            board.innerHTML += `<div class='square' id='${id}'></div>`;
-        }
 
-        document.getElementById('sq2').innerText = 'X';
-        document.getElementById('sq3').innerText = 'O';
+        document.write('<div class="board">');
+        for (i = 0; i < NUM_SQUARES; i++) {
+            id = "sq" + i;
+            document.write("<div class='square' id='" + id + "'></div>");
+        }
+        document.write('</div>');
+    </script>
+
+    <div id="condition">No Winner Yet</div>
+
+    <script>
+        window.onload = function () {
+            document.getElementById('sq2').innerText = 'X';
+            document.getElementById('sq3').innerText = 'O';
+        };
     </script>
 
 </body>

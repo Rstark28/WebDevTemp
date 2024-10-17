@@ -11,36 +11,56 @@
 <body>
 
     <h1>The Tic Tac Tango</h1>
-    <div id="turn"></div>
-    <div class="board"></div>
-    <div id="condition">No Winner Yet</div>
-    <button id="start-game">Start Game</button>
+    <div id="turn">Start The Game To Play</div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         const NUM_SQUARES = 9;
-        let board = document.querySelector('.board');
-        let currTurn;
+
+        document.write('<div class="board">');
+        for (let i = 0; i < NUM_SQUARES; i++) {
+            let id = "sq" + i;
+            document.write("<div class='square' id='" + id + "'></div>");
+        }
+        document.write('</div>');
+    </script>
+
+    <div id="condition">No Winner Yet</div>
+    <button id="start-game">Start Game</button>
+
+
+    <script>
         const winConditions = [
             [0, 1, 2], [3, 4, 5], [6, 7, 8],
-            [0, 3, 4], [1, 4, 7], [2, 5, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
             [0, 4, 8], [2, 4, 6]
         ];
 
-        function updateTurn() {
-            document.getElementById('turn').innerText = `${currTurn}'s Turn`;
+        function resetBoard() {
+            currPlayer = Math.random() < 0.5 ? 'X' : 'O';
+            document.getElementById('turn').innerText = `${currPlayer}'s Turn`;
+            document.getElementById('condition').innerText = 'No Winner Yet';
+            $('#condition').css('background-color', '#abb5df');
+            for (let i = 0; i < NUM_SQUARES; i++) {
+                document.getElementById('sq' + i).innerText = '';
+            }
         }
 
-        function clearBoard() {
-            currTurn = Math.random() < 0.5 ? 'X' : 'O';
-            board.innerHTML = '';
-            for (let i = 0; i < NUM_SQUARES; i++) {
-                board.innerHTML += `<div class='square' id='${"sq" + i}'></div>`;
+        function makeMove(event) {
+            let square = event.target;
+            if (square.innerText === '') {
+                square.innerText = currPlayer;
+                alert(`Square ${square.id.replace('sq', '')} clicked`);
+                const currBoard = Array.from(document.querySelectorAll('.square')).map(sq => sq.innerText);
+                const result = checkWin(currBoard);
+                result ? handleResult(result) : changeTurn();
             }
-            document.getElementById('condition').innerText = `No Winner Yet`;
-            $('#condition').css('background-color', '#abb5df');
-            updateTurn();
-            runGame();
+
+        }
+
+        function changeTurn() {
+            currPlayer = currPlayer === 'X' ? 'O' : 'X';
+            document.getElementById('turn').innerText = `${currPlayer}'s Turn`;
         }
 
         function checkWin(currBoard) {
@@ -50,41 +70,29 @@
                     return currBoard[a];
                 }
             }
-            if (currBoard.includes('')) return null;
-            return 'S';
+            return currBoard.includes('') ? null : 'S';
         }
 
-        function runGame() {
-            document.querySelectorAll('.square').forEach((square, index) => {
-                square.addEventListener('click', () => {
-                    if (!square.innerText) {
-                        square.innerText = currTurn;
-                        alert(`Square ${index} clicked`);
-
-                        // Flatten the board state into an array of moves
-                        const currBoard = Array.from(document.querySelectorAll('.square')).map(sq => sq.innerText);
-                        const result = checkWin(currBoard);
-
-                        if (result) {
-                            if (result === 'S') {
-                                document.getElementById('condition').innerText = 'Stalemate';
-                                $('#condition').css('background-color', '#ffee8b');
-                            } else {
-                                document.getElementById('condition').innerText = `${result} Wins!`;
-                                $('#condition').css('background-color', '#92d9a2');
-                            }
-
-                        } else {
-                            currTurn = currTurn === 'X' ? 'O' : 'X';
-                            updateTurn();
-                        }
-                    }
-                });
-            });
+        function handleResult(result) {
+            if (result === 'S') {
+                document.getElementById('condition').innerText = 'Stalemate';
+                $('#condition').css('background-color', '#ffee8b');
+            } else {
+                document.getElementById('condition').innerText = `${result} Wins!`;
+                $('#condition').css('background-color', '#92d9a2');
+            }
+            document.getElementById('turn').innerText = `Game Over, Start A New Game`;
+            for (let i = 0; i < NUM_SQUARES; i++) {
+                document.getElementById('sq' + i).removeEventListener('click', makeMove);
+            }
         }
 
-        document.getElementById('start-game').addEventListener('click', clearBoard);
-        clearBoard();
+        document.getElementById('start-game').onclick = function () {
+            for (let i = 0; i < NUM_SQUARES; i++) {
+                document.getElementById('sq' + i).addEventListener('click', makeMove);
+            }
+            resetBoard();
+        };
     </script>
 
 </body>
