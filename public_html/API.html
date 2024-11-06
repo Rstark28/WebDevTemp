@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency API</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        p {
+            max-width: 300px;
+            text-align: center;
+        }
+
+        #card {
+            border-radius: 8px;
+            margin: 20px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #selector {
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .exchange-rate {
+            font-size: 24px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ExchangeRate-API</h1>
+    <div id="card">
+        <h2>USD to <span id="currency-name">EUR</span></h2>
+        <div class="exchange-rate" id="exchange-rate">Loading...</div>
+        <label for="selector">Compare with:</label>
+        <select id="selector"></select>
+    </div>
+    <p>
+        <strong>Website:</strong>
+        <a href="https://www.exchangerate-api.com/" target="_blank">ExchangeRate-API</a>
+    </p>
+    <p>
+        This API provides real-time foreign exchange rates, allowing currency
+        conversions between multiple currencies. In the query string, you
+        provide the base currency (e.g., USD) as a parameter and receive the
+        conversion rates for all other currencies. The API could be used in a
+        banking app to display the latest exchange rates or in a travel app to
+        help users convert prices to their local currency.
+    </p>
+
+    <script>
+        async function fetchAPI() {
+            res = fetch("https://api.exchangerate-api.com/v4/latest/USD")
+                .then((response) => response.json())
+                .then((data) => {
+                    const selector = document.getElementById("selector");
+                    for (const currency in data.rates) {
+                        const option = document.createElement("option");
+                        option.value = currency;
+                        option.textContent = currency;
+                        selector.appendChild(option);
+                        dsiplayData(data, "EUR");
+
+                        selector.addEventListener("change", () => {
+                            const selected = selector.value;
+                            dsiplayData(data, selected);
+                        });
+                    }
+                })
+                .catch((error) => console.log(error));
+        }
+
+        function dsiplayData(data, currency) {
+            const rate = data.rates[currency];
+            const rateElement = document.getElementById("exchange-rate");
+            const nameElement = document.getElementById("currency-name");
+            const card = document.getElementById("card");
+
+            nameElement.textContent = currency;
+            rateElement.textContent = `1 USD = ${rate.toFixed(2)} ${currency}`;
+        }
+
+        fetchAPI();
+    </script>
+</body>
+
+</html>

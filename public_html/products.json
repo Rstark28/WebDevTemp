@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Vintage T-shirt",
+    "description": "Tie-die Grateful Dead T-shirt",
+    "price": "$35",
+    "categories": ["clothing", "vintage"]
+  },
+  {
+    "name": "Leather Jacket",
+    "description": "Black leather biker jacket",
+    "price": "$120",
+    "categories": ["clothing", "accessories"]
+  },
+  {
+    "name": "Bluetooth Speaker",
+    "description": "Portable wireless speaker",
+    "price": "$50",
+    "categories": ["electronics"]
+  },
+  {
+    "name": "Running Shoes",
+    "description": "Comfortable running shoes",
+    "price": "$80",
+    "categories": ["clothing", "sports"]
+  },
+  {
+    "name": "Smart Watch",
+    "description": "Wearable fitness tracker",
+    "price": "$150",
+    "categories": ["electronics", "accessories"]
+  },
+  {
+    "name": "Yoga Mat",
+    "description": "Non-slip yoga mat",
+    "price": "$25",
+    "categories": ["sports"]
+  },
+  {
+    "name": "Vintage Vinyl Record",
+    "description": "Classic rock album",
+    "price": "$20",
+    "categories": ["vintage", "music"]
+  },
+  {
+    "name": "Wireless Earbuds",
+    "description": "Noise-cancelling earbuds",
+    "price": "$100",
+    "categories": ["electronics"]
+  },
+  {
+    "name": "Sunglasses",
+    "description": "Polarized aviator sunglasses",
+    "price": "$50",
+    "categories": ["clothing", "accessories"]
+  },
+  {
+    "name": "Backpack",
+    "description": "Water-resistant hiking backpack",
+    "price": "$70",
+    "categories": ["clothing", "outdoors"]
+  },
+  {
+    "name": "Gaming Laptop",
+    "description": "High performance laptop for gaming",
+    "price": "$1200",
+    "categories": ["electronics", "computers"]
+  },
+  {
+    "name": "Electric Guitar",
+    "description": "Six-string electric guitar",
+    "price": "$300",
+    "categories": ["music", "instruments"]
+  },
+  {
+    "name": "Mountain Bike",
+    "description": "Off-road mountain bike",
+    "price": "$500",
+    "categories": ["sports", "outdoors"]
+  },
+  {
+    "name": "Coffee Maker",
+    "description": "Automatic drip coffee maker",
+    "price": "$80",
+    "categories": ["home", "kitchen"]
+  },
+  {
+    "name": "Smartphone",
+    "description": "Latest model smartphone",
+    "price": "$800",
+    "categories": ["electronics", "mobile"]
+  }
+]

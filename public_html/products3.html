@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main2.css">
+</head>
+
+<body>
+    <header>
+        <h1>Products</h1>
+        <button id="filterButton">Filter</button>
+        <select id="filterDrop">
+            <option value="all">all categories</option>
+        </select>
+    </header>
+    <div class="products"></div>
+    <script>
+        $.get('products.json', function (data) {
+            var products = data;
+            var uniqueCategories = [];
+            var output = '';
+
+            function displayProducts(filtered) {
+                var output = '';
+                filtered.forEach(function (product) {
+                    output += '<div class="product">';
+                    output += '<span class="name">' + product.name + '</span>';
+                    output += '<p class="description">' + product.description + '</p>';
+                    output += '<span class="price">' + product.price + '</span>';
+                    output += '<div class="categories">';
+                    product.categories.forEach(function (category) {
+                        output += '<p class="category">' + category + '</p>';
+                    });
+                    output += '</div></div>';
+                });
+                document.querySelector('.products').innerHTML = output;
+            }
+
+            function displayProductsFiltered(filtered) {
+                var output = '';
+                filtered.forEach(function (product) {
+                    output += '<div class="product">';
+                    output += '<span class="name">' + product.name + '</span>';
+                    output += '</div>';
+                });
+                document.querySelector('.products').innerHTML = output;
+            }
+
+            displayProducts(products);
+
+            products.forEach(function (product) {
+                product.categories.forEach(function (category) {
+                    if (!uniqueCategories.includes(category)) {
+                        uniqueCategories.push(category);
+                    }
+                });
+            });
+
+            uniqueCategories.forEach(function (category) {
+                $('#filterDrop').append('<option value="' + category + '">' + category + '</option>');
+            });
+
+            $('#filterButton').click(function () {
+                var category = $('#filterDrop').val();
+                if (category === 'all') {
+                    displayProducts(products);
+                }
+                else {
+                    var filtered = products.filter(function (product) {
+                        return product.categories.includes(category);
+                    });
+                    displayProductsFiltered(filtered);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

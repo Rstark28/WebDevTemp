@@ -9,14 +9,13 @@
 }
 
 body {
-    font-family: "Lucida Console", "Courier New", monospace;
     color: var(--text-color);
     margin: 0;
     padding: 0;
 }
 
 /* Product styles */
-products {
+.products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
@@ -24,53 +23,78 @@ products {
 }
 
 @media (min-width: 1200px) {
-    products {
-        grid-template-columns: repeat(4, 1fr);
+    .products {
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
-product {
+header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: var(--secondary-color);
+    text-align: center;
+    margin: 20px 0;
+}
+
+button, select {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, select:hover {
+    background-color: var(--hover-color);
+}
+
+.product {
     background-color: var(--primary-color);
     border: 2px solid var(--border-color);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+    height: 150px;
 }
 
-product:hover {
+.product:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px var(--shadow-color);
 }
 
-product name, product price {
+.product .name, .product .price {
     color: var(--secondary-color);
     display: block;
     font-weight: bold;
 }
 
-product name {
+.product .name {
     font-size: 1.4rem;
     margin-bottom: 10px;
 }
 
-product description {
+.product .description {
     color: var(--text-color);
     font-size: 1rem;
     margin-bottom: 15px;
 }
 
-product price {
+.product .price {
     font-size: 1.6em;
     font-weight: bold;
-    margin-top: 10px;
 }
 
-product categories {
-    margin-top: 12px;
-}
-
-product category {
+.product .category {
     display: inline-block;
     background-color: #fff;
     color: var(--text-color);
@@ -81,7 +105,7 @@ product category {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-product category:hover {
+.product .category:hover {
     background-color: var(--secondary-color);
     color: #fff;
 }
